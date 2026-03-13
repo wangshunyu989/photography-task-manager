@@ -35,6 +35,8 @@ RUN mkdir -p /app/prisma
 COPY --from=builder /app/prisma/schema.prisma ./prisma/
 COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
+COPY --from=builder /app/node_modules/bcryptjs ./node_modules/bcryptjs
+COPY --from=builder /app/init-admin.cjs ./init-admin.cjs
 
 USER nextjs
 
@@ -44,4 +46,4 @@ ENV PORT 3000
 
 COPY --from=builder /app/package.json ./package.json
 
-CMD sh -c "npx prisma db push --accept-data-loss && node server.js"
+CMD sh -c "npx prisma db push --accept-data-loss && node init-admin.cjs && node server.js"
