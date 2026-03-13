@@ -33,6 +33,8 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 RUN mkdir -p /app/prisma
 COPY --from=builder /app/prisma/schema.prisma ./prisma/
+COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
+COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
 
 USER nextjs
 
@@ -40,4 +42,6 @@ EXPOSE 3000
 
 ENV PORT 3000
 
-CMD ["node", "server.js"]
+COPY --from=builder /app/package.json ./package.json
+
+CMD sh -c "npx prisma db push --accept-data-loss && node server.js"
