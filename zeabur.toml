@@ -1,0 +1,9 @@
+[vars]
+NEXT_PUBLIC_URL = "${ZEABUR_DEPLOYMENT_URL}"
+NEXTAUTH_URL = "${ZEABUR_DEPLOYMENT_URL}"
+
+[services]
+  [services.app]
+    type = "web"
+    dockerfile = "Dockerfile"
+    ports = [3000]

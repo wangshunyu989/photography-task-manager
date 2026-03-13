@@ -1,0 +1,21 @@
+{
+  "name": "Photography Task Management",
+  "short_name": "PhotoTask",
+  "description": "A mobile app for photography task management",
+  "start_url": "https://github.com/wangshunyu989/v0-photography-task-management",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#333333",
+  "icons": [
+    {
+      "src": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Photography%20Task%20Management%20icon%20simple%20modern%20design%20camera%20symbol&image_size=square",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Photography%20Task%20Management%20icon%20simple%20modern%20design%20camera%20symbol&image_size=square_hd",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
